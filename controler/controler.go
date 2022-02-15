@@ -31,6 +31,7 @@ const (
 var crowdsecBouncerApiKey = RequiredEnv("CROWDSEC_BOUNCER_API_KEY")
 var crowdsecBouncerHost = RequiredEnv("CROWDSEC_AGENT_HOST")
 var crowdsecBouncerScheme = OptionalEnv("CROWDSEC_BOUNCER_SCHEME", "http")
+var crowdsecBouncerSkipRFC1918 = OptionalEnv("CROWDSEC_BOUNCER_SKIPRFC1918", "true")
 var (
 	ipProcessed = promauto.NewCounter(prometheus.CounterOpts{
 		Name: "crowdsec_traefik_bouncer_processed_ip_total",
@@ -116,7 +117,7 @@ func ForwardAuth(c *gin.Context) {
 
 	IPAddress := net.ParseIP(c.ClientIP())
 
-	if IPAddress.IsPrivate() {
+	if IPAddress.IsPrivate() && crowdsecBouncerSkipRFC1918 == "true" {
 		log.Debug().Msg("Client address is RFC1918, skipping LAPI check")
 		c.Status(http.StatusOK)
 	}else{
