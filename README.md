@@ -54,10 +54,11 @@ Generate a bouncer API key following [CrowdSec documentation](https://doc.crowds
 ## Configuration
 The webservice configuration is made via environment variables:
 
-* `CROWDSEC_BOUNCER_API_KEY`            - CrowdSec bouncer API key required to be authorized to request local API (required)`
-* `CROWDSEC_AGENT_HOST`                 - Host and port of CrowdSec agent, i.e. crowdsec-agent:8080 (required)`
-* `CROWDSEC_BOUNCER_SCHEME`             - Scheme to query CrowdSec agent. Expected value: http, https. Default to http`
+* `CROWDSEC_BOUNCER_API_KEY`            - CrowdSec bouncer API key required to be authorized to request local API (required)
+* `CROWDSEC_AGENT_HOST`                 - Host and port of CrowdSec agent, i.e. crowdsec-agent:8080 (required)
+* `CROWDSEC_BOUNCER_SCHEME`             - Scheme to query CrowdSec agent. Expected value: http, https. Default to http
 * `CROWDSEC_BOUNCER_LOG_LEVEL`          - Minimum log level for bouncer. Expected value [zerolog levels](https://pkg.go.dev/github.com/rs/zerolog#readme-leveled-logging). Default to 1
+* `CROWDSEC_BOUNCER_SKIPRFC1918`        - Don't send RCF1918 (Private) IP addresses to the LAPI to check ban status. Expected value: "true", "false" . Default to "true"
 * `PORT`                                - Change listening port of web server. Default listen on 8080
 * `GIN_MODE`                            - By default, run app in "debug" mode. Set it to "release" in production
 * `TRUSTED_PROXIES`                     - Can accept a list of IP addresses in CIDR format, delimited by ','. Default is 0.0.0.0/0
