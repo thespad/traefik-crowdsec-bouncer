@@ -59,6 +59,7 @@ The webservice configuration is made via environment variables:
 * `CROWDSEC_BOUNCER_SCHEME`             - Scheme to query CrowdSec agent. Expected value: http, https. Default to http
 * `CROWDSEC_BOUNCER_LOG_LEVEL`          - Minimum log level for bouncer. Expected value [zerolog levels](https://pkg.go.dev/github.com/rs/zerolog#readme-leveled-logging). Default to 1
 * `CROWDSEC_BOUNCER_SKIPRFC1918`        - Don't send RCF1918 (Private) IP addresses to the LAPI to check ban status. Expected value: "true", "false" . Default to "true"
+* `CROWDSEC_BOUNCER_REDIRECT`           - Optionally redirect instead of giving 403 Forbidden. Accepts relative or absolute URLs but must not be protected by the bouncer or you'll get a redirect loop. Default to null
 * `PORT`                                - Change listening port of web server. Default listen on 8080
 * `GIN_MODE`                            - By default, run app in "debug" mode. Set it to "release" in production
 * `TRUSTED_PROXIES`                     - Can accept a list of IP addresses in CIDR format, delimited by ','. Default is 0.0.0.0/0

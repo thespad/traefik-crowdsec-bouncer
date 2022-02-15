@@ -32,6 +32,7 @@ var crowdsecBouncerApiKey = RequiredEnv("CROWDSEC_BOUNCER_API_KEY")
 var crowdsecBouncerHost = RequiredEnv("CROWDSEC_AGENT_HOST")
 var crowdsecBouncerScheme = OptionalEnv("CROWDSEC_BOUNCER_SCHEME", "http")
 var crowdsecBouncerSkipRFC1918 = OptionalEnv("CROWDSEC_BOUNCER_SKIPRFC1918", "true")
+var crowdsecBouncerRedirect = NullableEnv("CROWDSEC_BOUNCER_REDIRECT")
 var (
 	ipProcessed = promauto.NewCounter(prometheus.CounterOpts{
 		Name: "crowdsec_traefik_bouncer_processed_ip_total",
@@ -126,6 +127,8 @@ func ForwardAuth(c *gin.Context) {
 		if err != nil {
 			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
 			c.String(http.StatusForbidden, "Forbidden")
+		} else if !isAuthorized && len(crowdsecBouncerRedirect) != 0 {
+			c.Redirect(http.StatusFound, crowdsecBouncerRedirect)
 		} else if !isAuthorized {
 			c.String(http.StatusForbidden, "Forbidden")
 		} else {

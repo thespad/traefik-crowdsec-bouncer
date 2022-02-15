@@ -17,6 +17,14 @@ func OptionalEnv(varName string, optional string) string {
 }
 
 /*
+	Check for an environment variable value, if absent use a default value
+*/
+func NullableEnv(varName string) string {
+	envVar := os.Getenv(varName)
+	return envVar
+}
+
+/*
 	Check for an environment variable value, exit program if not found
 */
 func RequiredEnv(varName string) string {
