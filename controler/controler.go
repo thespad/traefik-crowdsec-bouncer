@@ -9,6 +9,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"io"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"net/url"
 	"time"
@@ -113,15 +114,22 @@ func ForwardAuth(c *gin.Context) {
 		Str(clientIpHeader, c.Request.Header.Get(clientIpHeader)).
 		Msg("Handling forwardAuth request")
 
-	// Getting and verifying ip using ClientIP function
-	isAuthorized, err := isIpAuthorized(c.ClientIP())
-	if err != nil {
-		log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
-		c.String(http.StatusForbidden, "Forbidden")
-	} else if !isAuthorized {
-		c.String(http.StatusForbidden, "Forbidden")
-	} else {
+	IPAddress := net.ParseIP(c.ClientIP())
+
+	if IPAddress.IsPrivate() {
+		log.Debug().Msg("Client address is RFC1918, skipping LAPI check")
 		c.Status(http.StatusOK)
+	}else{
+		// Getting and verifying ip using ClientIP function
+		isAuthorized, err := isIpAuthorized(c.ClientIP())
+		if err != nil {
+			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
+			c.String(http.StatusForbidden, "Forbidden")
+		} else if !isAuthorized {
+			c.String(http.StatusForbidden, "Forbidden")
+		} else {
+			c.Status(http.StatusOK)
+		}
 	}
 }
 
