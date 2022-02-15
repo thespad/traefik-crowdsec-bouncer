@@ -1,13 +1,13 @@
-![GitHub](https://img.shields.io/github/license/fbonalair/traefik-crowdsec-bouncer)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/fbonalair/traefik-crowdsec-bouncer)
-[![Go Report Card](https://goreportcard.com/badge/github.com/fbonalair/traefik-crowdsec-bouncer)](https://goreportcard.com/report/github.com/fbonalair/traefik-crowdsec-bouncer)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7177dce30f0abdf8bcbf/maintainability)](https://codeclimate.com/github/fbonalair/traefik-crowdsec-bouncer/maintainability)
-[![ci](https://github.com/fbonalair/traefik-crowdsec-bouncer/actions/workflows/main.yml/badge.svg)](https://github.com/fbonalair/traefik-crowdsec-bouncer/actions/workflows/main.yml)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/fbonalair/traefik-crowdsec-bouncer)
-![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/fbonalair/traefik-crowdsec-bouncer)
+![GitHub](https://img.shields.io/github/license/thespad/traefik-crowdsec-bouncer)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/thespad/traefik-crowdsec-bouncer)
+[![Go Report Card](https://goreportcard.com/badge/github.com/thespad/traefik-crowdsec-bouncer)](https://goreportcard.com/report/github.com/thespad/traefik-crowdsec-bouncer)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7177dce30f0abdf8bcbf/maintainability)](https://codeclimate.com/github/thespad/traefik-crowdsec-bouncer/maintainability)
+[![ci](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/called-bakebuild.yml/badge.svg)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/called-bakebuild.yml)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/thespad/traefik-crowdsec-bouncer)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/thespad/traefik-crowdsec-bouncer)
 
 # traefik-crowdsec-bouncer
-A http service to verify request and bounce them according to decisions made by CrowdSec.
+A http service to verify request and bounce them according to decisions made by CrowdSec. Fork of https://github.com/thespad/traefik-crowdsec-bouncer
 
 # Description
 This repository aim to implement a [CrowdSec](https://doc.crowdsec.net/) bouncer for the router [Traefik](https://doc.traefik.io/traefik/) to block malicious IP to access your services.
@@ -21,7 +21,7 @@ You can use the docker-compose in the examples' folder as a starting point.
 Through traefik it exposes the whoami countainer on port 80, with the bouncer accepting and rejecting client IP.   
 Launch your all services except the bouncer with the follow commands:
 ```bash
-git clone https://github.com/fbonalair/traefik-crowdsec-bouncer.git && \
+git clone https://github.com/thespad/traefik-crowdsec-bouncer.git && \
   cd traefik-crowdsec-bouncer/examples && \
   docker-compose up -d traefik crowdsec whoami 
 ```
@@ -47,7 +47,7 @@ If you need to build from source, you can get some inspiration from the Dockerfi
 
 ## Prerequisites
 You should have Traefik v2 and a CrowdSec instance running.   
-The container is available on docker as image `fbonalair/traefik-crowdsec-bouncer`. Host it as you see fit, though it must have access to CrowdSec and be accessible by Traefik.   
+The container is available on docker as image `ghcr.io/thespad/traefik-crowdsec-bouncer`. Host it as you see fit, though it must have access to CrowdSec and be accessible by Traefik.   
 Follow  [traefik v2 ForwardAuth middleware](https://doc.traefik.io/traefik/middlewares/http/forwardauth/) documentation to create a forwardAuth middle pointing to your bouncer host.   
 Generate a bouncer API key following [CrowdSec documentation](https://doc.crowdsec.net/docs/cscli/cscli_bouncers_add)
 
