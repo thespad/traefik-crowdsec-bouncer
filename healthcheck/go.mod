@@ -1,3 +1,3 @@
-module github.com/fbonalair/healthcheck
+module github.com/thespad/healthcheck
 
 go 1.17

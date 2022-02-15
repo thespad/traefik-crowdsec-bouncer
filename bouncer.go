@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	. "github.com/fbonalair/traefik-crowdsec-bouncer/config"
-	"github.com/fbonalair/traefik-crowdsec-bouncer/controler"
+	. "github.com/thespad/traefik-crowdsec-bouncer/config"
+	"github.com/thespad/traefik-crowdsec-bouncer/controler"
 	"github.com/gin-contrib/logger"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
