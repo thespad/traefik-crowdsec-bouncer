@@ -4,10 +4,10 @@ A http service to verify requests and bounce them according to decisions made by
 
 [![GitHub Release](https://img.shields.io/github/release/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/traefik-crowdsec-bouncer/releases)
 ![Commits](https://img.shields.io/github/commits-since/thespad/traefik-crowdsec-bouncer/latest?color=26689A&include_prereleases&logo=github&style=for-the-badge)
-![Image Size](https://img.shields.io/docker/image-size/thespad/matomo/latest?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Size)
-[![Docker Pulls](https://img.shields.io/docker/pulls/thespad/matomo.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/thespad/matomo)
+![Image Size](https://img.shields.io/docker/image-size/thespad/traefik-crowdsec-bouncer/latest?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Size)
+[![Docker Pulls](https://img.shields.io/docker/pulls/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/thespad/traefik-crowdsec-bouncer)
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/traefik-crowdsec-bouncer)
-[![Docker Stars](https://img.shields.io/docker/stars/thespad/matomo.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/matomo)
+[![Docker Stars](https://img.shields.io/docker/stars/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/traefik-crowdsec-bouncer)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/thespad/traefik-crowdsec-bouncer?color=26689A&logo=go&logoColor=ffffff&style=for-the-badge)
 
 [![ci](https://img.shields.io/github/workflow/status/thespad/traefik-crowdsec-bouncer/Build%20Image%20On%20Release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/called-bakebuild.yml)
