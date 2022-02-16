@@ -3,12 +3,12 @@ package main
 import (
 	"os"
 
-	. "github.com/thespad/traefik-crowdsec-bouncer/config"
-	"github.com/thespad/traefik-crowdsec-bouncer/controler"
 	"github.com/gin-contrib/logger"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
+	. "github.com/thespad/traefik-crowdsec-bouncer/config"
+	"github.com/thespad/traefik-crowdsec-bouncer/controler"
 	"strings"
 )
 

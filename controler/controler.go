@@ -14,10 +14,10 @@ import (
 	"net/url"
 	"time"
 
-	. "github.com/thespad/traefik-crowdsec-bouncer/config"
-	"github.com/thespad/traefik-crowdsec-bouncer/model"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
+	. "github.com/thespad/traefik-crowdsec-bouncer/config"
+	"github.com/thespad/traefik-crowdsec-bouncer/model"
 )
 
 const (
@@ -121,7 +121,7 @@ func ForwardAuth(c *gin.Context) {
 	if IPAddress.IsPrivate() && crowdsecBouncerSkipRFC1918 == "true" {
 		log.Debug().Msg("Client address is RFC1918, skipping LAPI check")
 		c.Status(http.StatusOK)
-	}else{
+	} else {
 		// Getting and verifying ip using ClientIP function
 		isAuthorized, err := isIpAuthorized(c.ClientIP())
 		if err != nil {
