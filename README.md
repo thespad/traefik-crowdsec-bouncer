@@ -9,8 +9,6 @@ A http service to verify requests and bounce them according to decisions made by
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/traefik-crowdsec-bouncer)
 [![Docker Stars](https://img.shields.io/docker/stars/thespad/whisparr.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/whisparr)
 
-[![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-check-and-release.yml?branch=nightly&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-check-and-release.yml)
-[![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-baseimage-update.yml?branch=nightly&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Baseimage%20Updates)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-baseimage-update.yml)
 [![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-build-image.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-build-image.yml)
 
 ## Supported Architectures
