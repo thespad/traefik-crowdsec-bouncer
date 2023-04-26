@@ -23,7 +23,7 @@ import (
 const (
 	clientIpHeader       = "X-Real-Ip"
 	forwardHeader        = "X-Forwarded-For"
-	cfconnectingip			 = "CF-Connecting-IP"
+	cfconnectingip       = "CF-Connecting-IP"
 	crowdsecAuthHeader   = "X-Api-Key"
 	crowdsecBouncerRoute = "v1/decisions"
 	healthCheckIp        = "127.0.0.1"
