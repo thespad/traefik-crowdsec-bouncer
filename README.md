@@ -2,15 +2,16 @@
 
 A http service to verify requests and bounce them according to decisions made by CrowdSec. Fork of [https://github.com/fbonalair/traefik-crowdsec-bouncer](https://github.com/fbonalair/traefik-crowdsec-bouncer)
 
-[![GitHub Release](https://img.shields.io/github/release/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/traefik-crowdsec-bouncer/releases)
+[![GitHub Release](https://img.shields.io/github/release/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&include_prereleases)](https://github.com/thespad/traefik-crowdsec-bouncer/releases)
 ![Commits](https://img.shields.io/github/commits-since/thespad/traefik-crowdsec-bouncer/latest?color=26689A&include_prereleases&logo=github&style=for-the-badge)
-![Image Size](https://img.shields.io/docker/image-size/thespad/traefik-crowdsec-bouncer/latest?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Size)
-[![Docker Pulls](https://img.shields.io/docker/pulls/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/thespad/traefik-crowdsec-bouncer)
+![Image Size](https://img.shields.io/docker/image-size/thespad/whisparr/latest?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Size)
+[![Docker Pulls](https://img.shields.io/docker/pulls/thespad/whisparr.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/thespad/whisparr)
 [![GitHub Stars](https://img.shields.io/github/stars/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/thespad/traefik-crowdsec-bouncer)
-[![Docker Stars](https://img.shields.io/docker/stars/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/traefik-crowdsec-bouncer)
-![Go Version](https://img.shields.io/github/go-mod/go-version/thespad/traefik-crowdsec-bouncer?color=26689A&logo=go&logoColor=ffffff&style=for-the-badge)
+[![Docker Stars](https://img.shields.io/docker/stars/thespad/whisparr.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/thespad/whisparr)
 
-[![ci](https://img.shields.io/github/workflow/status/thespad/traefik-crowdsec-bouncer/Build%20Image%20On%20Release.svg?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/called-bakebuild.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-check-and-release.yml?branch=nightly&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Upstream%20Updates)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-check-and-release.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-baseimage-update.yml?branch=nightly&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Check%20For%20Baseimage%20Updates)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-baseimage-update.yml)
+[![ci](https://img.shields.io/github/actions/workflow/status/thespad/traefik-crowdsec-bouncer/call-build-image.yml?labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&label=Build%20Image)](https://github.com/thespad/traefik-crowdsec-bouncer/actions/workflows/call-build-image.yml)
 
 ## Supported Architectures
 

@@ -23,6 +23,7 @@ import (
 const (
 	clientIpHeader       = "X-Real-Ip"
 	forwardHeader        = "X-Forwarded-For"
+	cfconnectingip       = "CF-Connecting-IP"
 	crowdsecAuthHeader   = "X-Api-Key"
 	crowdsecBouncerRoute = "v1/decisions"
 	healthCheckIp        = "127.0.0.1"
@@ -114,6 +115,7 @@ func ForwardAuth(c *gin.Context) {
 		Str("ClientIP", c.ClientIP()).
 		Str(forwardHeader, c.Request.Header.Get(forwardHeader)).
 		Str(clientIpHeader, c.Request.Header.Get(clientIpHeader)).
+		Str(cfconnectingip, c.Request.Header.Get(cfconnectingip)).
 		Msg("Handling forwardAuth request")
 
 	IPAddress := net.ParseIP(c.ClientIP())
@@ -123,7 +125,11 @@ func ForwardAuth(c *gin.Context) {
 		c.Status(http.StatusOK)
 	} else {
 		// Getting and verifying ip using ClientIP function
-		isAuthorized, err := isIpAuthorized(c.ClientIP())
+		IPAddress := c.Request.Header.Get(cfconnectingip)
+		if IPAddress == "" {
+			IPAddress = c.Request.Header.Get(c.ClientIP())
+		}
+		isAuthorized, err := isIpAuthorized(IPAddress)
 		if err != nil {
 			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
 			c.String(http.StatusForbidden, "Forbidden")
