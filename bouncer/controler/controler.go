@@ -16,8 +16,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-	. "github.com/thespad/traefik-crowdsec-bouncer/config"
-	"github.com/thespad/traefik-crowdsec-bouncer/model"
+	. "github.com/thespad/traefik-crowdsec-bouncer/bouncer/config"
+	"github.com/thespad/traefik-crowdsec-bouncer/bouncer/model"
 )
 
 const (
@@ -131,7 +131,7 @@ func ForwardAuth(c *gin.Context) {
 		}
 		isAuthorized, err := isIpAuthorized(IPAddress)
 		if err != nil {
-			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
+			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", IPAddress)
 			c.String(http.StatusForbidden, "Forbidden")
 		} else if !isAuthorized && len(crowdsecBouncerRedirect) != 0 {
 			c.Redirect(http.StatusFound, crowdsecBouncerRedirect)
