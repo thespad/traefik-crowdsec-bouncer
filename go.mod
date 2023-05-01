@@ -1,4 +1,4 @@
-module github.com/thespad/traefik-crowdsec-bouncer/bouncer
+module github.com/thespad/traefik-crowdsec-bouncer
 
 go 1.17
 
@@ -46,8 +46,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/thespad/traefik-crowdsec-bouncer/bouncer/config => ../config
+replace github.com/thespad/traefik-crowdsec-bouncer/config => ../config
 
-replace github.com/thespad/traefik-crowdsec-bouncer/bouncer/model => ../model
+replace github.com/thespad/traefik-crowdsec-bouncer/model => ../model
 
-replace github.com/thespad/traefik-crowdsec-bouncer/bouncer/controler => ../controler
+replace github.com/thespad/traefik-crowdsec-bouncer/controler => ../controler
