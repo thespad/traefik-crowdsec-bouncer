@@ -44,6 +44,19 @@ The architectures supported by this image are:
 9. Unban yourself with `docker exec crowdsec cscli decisions delete --ip <your IP>`
 10. Visit the site one last time, you will have access to the site again.
 
+### Traefik Setup
+
+Create a Forward Auth middleware, i.e.
+
+```yml
+    middleware-crowdsec-bouncer:
+      forwardauth:
+        address: http://crowdsec-bouncer-traefik:8080/api/v1/forwardAuth
+        trustForwardHeader: true
+```
+
+Then apply it either to individual containers you wish to protect or as a default middlware on the Traefik listener.
+
 ## Parameters
 
 The webservice configuration is made via environment variables:
