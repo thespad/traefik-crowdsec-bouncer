@@ -1,6 +1,6 @@
 # [thespad/traefik-crowdsec-bouncer](https://github.com/thespad/traefik-crowdsec-bouncer)
 
-A http service to verify requests and bounce them according to decisions made by CrowdSec. Fork of [https://github.com/fbonalair/traefik-crowdsec-bouncer](https://github.com/fbonalair/traefik-crowdsec-bouncer)
+A http service to verify requests and bounce them according to decisions made by CrowdSec. Fork of [https://github.com/fbonalair/traefik-crowdsec-bouncer](https://github.com/fbonalair/traefik-crowdsec-bouncer) with extra features.
 
 [![GitHub Release](https://img.shields.io/github/release/thespad/traefik-crowdsec-bouncer.svg?color=26689A&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github&include_prereleases)](https://github.com/thespad/traefik-crowdsec-bouncer/releases)
 ![Commits](https://img.shields.io/github/commits-since/thespad/traefik-crowdsec-bouncer/latest?color=26689A&include_prereleases&logo=github&style=for-the-badge)
@@ -104,5 +104,7 @@ docker build \
 
 ## Versions
 
+* **01.05.23:** - Update deps.
 * **01.05.23:** - Restructure repo.
+* **26.04.23:** - Support CF forwarded IP headers.
 * **15.02.22:** - Initial Release.
