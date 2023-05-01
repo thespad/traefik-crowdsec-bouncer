@@ -131,7 +131,7 @@ func ForwardAuth(c *gin.Context) {
 		}
 		isAuthorized, err := isIpAuthorized(IPAddress)
 		if err != nil {
-			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", c.Request.Header.Get(clientIpHeader))
+			log.Warn().Err(err).Msgf("An error occurred while checking IP %q", IPAddress)
 			c.String(http.StatusForbidden, "Forbidden")
 		} else if !isAuthorized && len(crowdsecBouncerRedirect) != 0 {
 			c.Redirect(http.StatusFound, crowdsecBouncerRedirect)
