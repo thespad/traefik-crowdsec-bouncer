@@ -16,8 +16,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
-	. "github.com/thespad/traefik-crowdsec-bouncer/bouncer/config"
-	"github.com/thespad/traefik-crowdsec-bouncer/bouncer/model"
+	. "github.com/thespad/traefik-crowdsec-bouncer/config"
+	"github.com/thespad/traefik-crowdsec-bouncer/model"
 )
 
 const (
