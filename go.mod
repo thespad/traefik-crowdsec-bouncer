@@ -1,6 +1,6 @@
 module github.com/thespad/traefik-crowdsec-bouncer
 
-go 1.17
+go 1.20
 
 require (
 	github.com/gin-contrib/logger v0.2.5
@@ -50,4 +50,4 @@ replace github.com/thespad/traefik-crowdsec-bouncer/config => ../config
 
 replace github.com/thespad/traefik-crowdsec-bouncer/model => ../model
 
-replace github.com/thespad/traefik-crowdsec-bouncer/controler => ../controler
+replace github.com/thespad/traefik-crowdsec-bouncer/controller => ../controller
