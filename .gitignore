@@ -21,3 +21,6 @@ tmp/
 
 !.idea/runConfigurations/
 !.idea/rest-api.http
+
+# Docker init folder
+root/

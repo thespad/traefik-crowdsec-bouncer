@@ -12,7 +12,7 @@ func TestPing(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/ping", nil)
+	req, _ := http.NewRequest("GET", PingPath, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -22,7 +22,7 @@ func TestHealthz(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/healthz", nil)
+	req, _ := http.NewRequest("GET", HealthzPath, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
@@ -32,7 +32,7 @@ func TestForwardAuthInvalidIp(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/forwardAuth", nil)
+	req, _ := http.NewRequest("GET", ForwardAuthPath, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 403, w.Code)
@@ -42,7 +42,7 @@ func TestForwardAuthBannedIp(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/forwardAuth", nil)
+	req, _ := http.NewRequest("GET", ForwardAuthPath, nil)
 	req.Header.Add("X-Real-Ip", "1.2.3.4")
 	router.ServeHTTP(w, req)
 
@@ -53,7 +53,7 @@ func TestForwardAuthValidIp(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/forwardAuth", nil)
+	req, _ := http.NewRequest("GET", ForwardAuthPath, nil)
 	req.Header.Add("X-Real-Ip", "127.0.0.1")
 	router.ServeHTTP(w, req)
 
@@ -63,7 +63,7 @@ func TestMetrics(t *testing.T) {
 	router, _ := setupRouter()
 
 	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/api/v1/metrics", nil)
+	req, _ := http.NewRequest("GET", MetricsPath, nil)
 	router.ServeHTTP(w, req)
 
 	assert.Equal(t, 200, w.Code)
