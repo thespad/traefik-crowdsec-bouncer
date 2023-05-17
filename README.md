@@ -42,6 +42,21 @@ Create a Forward Auth middleware, i.e.
 
 Then apply it either to individual containers you wish to protect or as a default middlware on the Traefik listener.
 
+## Configuration Environment Variables
+
+| Option | Explanation |
+| - | - |
+| CROWDSEC_BOUNCER_API_KEY | CrowdSec bouncer API key (required). |
+| CROWDSEC_AGENT_HOST | Host and port of CrowdSec LAPI agent, i.e. crowdsec-agent:8080 (required). |
+| CROWDSEC_BOUNCER_SCHEME | Scheme to query CrowdSec agent. Allowed values: `http`, `https`. Default is `http`. |
+| TRUSTED_PROXIES | IP addresses of upstream proxies. Can accept a list of IP addresses in CIDR format, delimited by ','. Default is `0.0.0.0/0`. |
+| PORT | Change listening port of web server. Default is `8080`. |
+| CROWDSEC_BOUNCER_LOG_LEVEL | Minimum log level for bouncer. Allowed values: [zerolog levels](https://pkg.go.dev/github.com/rs/zerolog#readme-leveled-logging). Default is `1`. |
+| GIN_MODE | Operational mode for Gin framework. Set to `debug` for noisy log output. Default is `release`. |
+| CROWDSEC_BOUNCER_SKIPRFC1918 | Don't send RCF1918 (Private) IP addresses to the LAPI to check ban status. Allowed values: `true`, `false` . Default is `true`. |
+| CROWDSEC_BOUNCER_REDIRECT | Optionally redirect instead of giving 403 Forbidden. Accepts relative or absolute URLs but must not be protected by the bouncer or you'll get a redirect loop. Default is `null`. |
+| CROWDSEC_BOUNCER_CLOUDFLARE | Use the `CF-Connecting-IP` header instead of `X-Forwarded-For`. This is useful if you're using Cloudflare proxying as `CF-Connecting-IP` will contain the real source address rather than the Cloudflare address. Allowed values: `true`, `false` . Default is `false`. |
+
 ## Exposed routes
 
 The webservice exposes some routes:
