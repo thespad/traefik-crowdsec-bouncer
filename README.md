@@ -44,7 +44,7 @@ Then apply it either to individual containers you wish to protect or as a defaul
 
 ## Configuration Environment Variables
 
-| Option | Explanation |
+| Parameter | Function |
 | - | - |
 | CROWDSEC_BOUNCER_API_KEY | CrowdSec bouncer API key (required). |
 | CROWDSEC_AGENT_HOST | Host and port of CrowdSec LAPI agent, i.e. crowdsec-agent:8080 (required). |
@@ -68,6 +68,7 @@ The webservice exposes some routes:
 
 ## Versions
 
+* **17.05.23:** - Add CROWDSEC_BOUNCER_CLOUDFLARE option.
 * **01.05.23:** - Move docker image to its own repo.
 * **01.05.23:** - Update deps.
 * **01.05.23:** - Restructure repo.
