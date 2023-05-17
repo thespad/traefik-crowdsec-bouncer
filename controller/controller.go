@@ -3,15 +3,16 @@ package controller
 import (
   "encoding/json"
   "fmt"
-  "github.com/prometheus/client_golang/prometheus"
-  "github.com/prometheus/client_golang/prometheus/promauto"
-  "github.com/prometheus/client_golang/prometheus/promhttp"
   "io"
   "io/ioutil"
   "net"
   "net/http"
   "net/url"
   "time"
+
+  "github.com/prometheus/client_golang/prometheus"
+  "github.com/prometheus/client_golang/prometheus/promauto"
+  "github.com/prometheus/client_golang/prometheus/promhttp"
 
   "github.com/gin-gonic/gin"
   "github.com/rs/zerolog/log"
@@ -32,6 +33,7 @@ var crowdsecBouncerApiKey = config.RequiredEnv("CROWDSEC_BOUNCER_API_KEY")
 var crowdsecBouncerHost = config.RequiredEnv("CROWDSEC_AGENT_HOST")
 var crowdsecBouncerScheme = config.OptionalEnv("CROWDSEC_BOUNCER_SCHEME", "http")
 var crowdsecBouncerSkipRFC1918 = config.OptionalEnv("CROWDSEC_BOUNCER_SKIPRFC1918", "true")
+var crowdsecCloudflare = config.OptionalEnv("CROWDSEC_BOUNCER_CLOUDFLARE", "false")
 var crowdsecBouncerRedirect = config.NullableEnv("CROWDSEC_BOUNCER_REDIRECT")
 var (
   ipProcessed = promauto.NewCounter(prometheus.CounterOpts{
@@ -113,7 +115,7 @@ func ForwardAuth(c *gin.Context) {
     Str(cfconnectingip, c.Request.Header.Get(cfconnectingip)).
     Msg("Handling forwardAuth request")
 
-	IPAddress := net.ParseIP(c.ClientIP())
+  IPAddress := net.ParseIP(c.ClientIP())
 
   if IPAddress.IsPrivate() && crowdsecBouncerSkipRFC1918 == "true" {
     log.Debug().Msg("Client address is RFC1918, skipping LAPI check")
@@ -121,8 +123,13 @@ func ForwardAuth(c *gin.Context) {
     return
   }
 
-  IPString := c.Request.Header.Get(cfconnectingip)
-  if IPString == "" {
+  var IPString string
+  if crowdsecCloudflare == "true" {
+    IPString = c.Request.Header.Get(cfconnectingip)
+    if IPString == "" {
+      IPString = c.ClientIP()
+    }
+  } else {
     IPString = c.ClientIP()
   }
 
